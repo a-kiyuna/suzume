@@ -15,11 +15,13 @@ const players = {
 function registerPlayer(num, name) {
     // 1～4の範囲外なら何もしない
     if (num <= 0 || 5 <= num) {
+        console.log('[DEBUG] num is out of range.')
         return;
     }
 
     // 名前が空白なら何もしない
     if (!name) {
+        console.log('[DEBUG] name is undefined.')
         return;
     }
 
@@ -38,6 +40,8 @@ function registerPlayer(num, name) {
         // ３人以上登録されていれば、スタートボタンを有効化
         const btnStart = document.getElementById('btn-start')
         btnStart.disabled = false
+
+        console.log('[DEBUG] start button has been enabled.')
     }
 }
 
