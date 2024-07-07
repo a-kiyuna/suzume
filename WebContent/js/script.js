@@ -29,8 +29,12 @@ function registerPlayer(num, name) {
     players['player' + num] = { name: name, score: 0 }
 
     // 名前入力欄を無効化
-    const input = document.getElementById('player' + num)
+    const input = document.getElementById('playerInput' + num)
     input.disabled = true
+
+    // 入力内容保持用に、hidden項目にデータを格納
+    const hidden = document.getElementById('player' + num)
+    hidden.value = name
 
     // 「登録」ボタンを無効化
     const btnRegister = document.getElementById('register' + num)
@@ -63,24 +67,16 @@ function isStartButtonAvailable() {
     return 3 <= count
 }
 
-
-function pressStartButton() {
-
-}
-
 /**
  * イベントリスナを登録する
  */
 function registerListeners() {
     for (let i = 1; i <= 4; i++) {
-        const input = document.getElementById('player' + i)
+        const input = document.getElementById('playerInput' + i)
         const btn = document.getElementById('register' + i)
 
         btn.onclick = () => registerPlayer(i, input.value)
     }
-
-    const btnStart = document.getElementById('btn-start')
-    btnStart.onclick = pressStartButton
 }
 
 registerListeners()
