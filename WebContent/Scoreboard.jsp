@@ -20,11 +20,70 @@
 </head>
 
 <body>
-	<div class="mt-5 container">
-		<div class="row justify-content-center">
-			<div class="col-md-4">
-				<h1 class="text-center">すずめ雀 計算機</h1>
+	<div class="mt-5 row justify-content-center">
+		<div class="col-sm-8">
+
+			<h4 class="text-center">１局目</h4>
+
+			<!-- 下に罫線を引く -->
+			<div class="border-bottom border-black">
+
+				<!-- ボーダーに隙間を空けるため、上下にpaddingを入れる -->
+				<div class="row pt-2 pb-2">
+
+					<!-- 画面上部にプレイヤーの名前とスコアを横並びで表示する -->
+					<c:forEach var="player" varStatus="status" items="${players}">
+
+						<!-- 一番左のプレイヤーには罫線を入れない -->
+						<c:if test="${status.index == 0}">
+							<div class="col text-center">
+								<h3>${player.name}</h3>
+								<p>${player.score}</p>
+							</div>
+						</c:if>
+
+						<!-- ２番目以降のプレイヤーの左側に罫線を引く -->
+						<c:if test="${status.index != 0}">
+							<div class="col border-start border-black text-center">
+								<h3>${player.name}</h3>
+								<p>${player.score}</p>
+							</div>
+						</c:if>
+
+					</c:forEach>
+
+				</div>
+
 			</div>
+
+			<div class="row justify-content-around">
+
+					<!-- プレイヤーの名前のボタン -->
+					<!-- 1行に2名ずつ表示する -->
+					<c:forEach var="player" varStatus="status" step="2" items="${players}">
+						<div class="row mt-5">
+
+							<!-- 奇数番目のプレイヤーを表示 -->
+							<div class="col border border-black text-center">
+								<h3>${players[status.index].name}</h3>
+								<p>${players[status.index].score}</p>
+							</div>
+
+							<!-- 偶数番目のプレイヤーが存在すれば表示 -->
+							<c:if test="${players[status.index+1] != null}">
+								<div class="col border border-black text-center ms-5">
+									<h3>${players[status.index+1].name}</h3>
+									<p>${players[status.index+1].score}</p>
+								</div>
+							</c:if>
+						</div>
+					</c:forEach>
+
+					<div class="mt-5 p-3 col-2 border border-black text-center">
+						終了
+					</div>
+			</div>
+
 		</div>
 	</div>
 </body>
