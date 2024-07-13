@@ -21,7 +21,7 @@
 
 <body>
 	<div class="mt-5 row justify-content-center">
-		<div class="col-sm-8">
+		<div class="col-sm-6">
 
 			<h4 class="text-center">１局目</h4>
 
@@ -64,22 +64,20 @@
 						<div class="row mt-5">
 
 							<!-- 奇数番目のプレイヤーを表示 -->
-							<div class="col border border-black text-center">
+							<div class="col border border-black text-center btn btn-outline-dark">
 								<h3>${players[status.index].name}</h3>
-								<p>${players[status.index].score}</p>
 							</div>
 
 							<!-- 偶数番目のプレイヤーが存在すれば表示 -->
 							<c:if test="${players[status.index+1] != null}">
-								<div class="col border border-black text-center ms-5">
+								<div class="col border border-black text-center ms-5 btn btn-outline-dark">
 									<h3>${players[status.index+1].name}</h3>
-									<p>${players[status.index+1].score}</p>
 								</div>
 							</c:if>
 						</div>
 					</c:forEach>
 
-					<div class="mt-5 p-3 col-2 border border-black text-center">
+					<div class="mt-5 p-3 col-2 border border-black text-center btn btn-outline-dark">
 						終了
 					</div>
 			</div>
