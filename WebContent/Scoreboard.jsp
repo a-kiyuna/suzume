@@ -25,16 +25,16 @@
 
 			<h4 class="text-center">１局目</h4>
 
-			<!-- 下に罫線を引く -->
+			<%-- 下に罫線を引く --%>
 			<div class="border-bottom border-black">
 
-				<!-- ボーダーに隙間を空けるため、上下にpaddingを入れる -->
+				<%-- ボーダーに隙間を空けるため、上下にpaddingを入れる --%>
 				<div class="row pt-2 pb-2">
 
-					<!-- 画面上部にプレイヤーの名前とスコアを横並びで表示する -->
+					<%-- 画面上部にプレイヤーの名前とスコアを横並びで表示する --%>
 					<c:forEach var="player" varStatus="status" items="${players}">
 
-						<!-- 一番左のプレイヤーには罫線を入れない -->
+						<%-- 一番左のプレイヤーには罫線を入れない --%>
 						<c:if test="${status.index == 0}">
 							<div class="col text-center">
 								<h3>${player.name}</h3>
@@ -42,7 +42,7 @@
 							</div>
 						</c:if>
 
-						<!-- ２番目以降のプレイヤーの左側に罫線を引く -->
+						<%-- ２番目以降のプレイヤーの左側に罫線を引く --%>
 						<c:if test="${status.index != 0}">
 							<div class="col border-start border-black text-center">
 								<h3>${player.name}</h3>
@@ -58,19 +58,19 @@
 
 			<div class="row justify-content-around">
 
-					<!-- プレイヤーの名前のボタン -->
-					<!-- 1行に2名ずつ表示する -->
+					<%-- プレイヤーの名前のボタン --%>
+					<%-- 1行に2名ずつ表示する --%>
 					<c:forEach var="player" varStatus="status" step="2" items="${players}">
 						<div class="row mt-5 justify-content-around">
 
-							<!-- 奇数番目のプレイヤーを表示 -->
+							<%-- 奇数番目のプレイヤーを表示 --%>
 							<div class="col-6">
 								<div class="p-2 border border-black text-center btn btn-outline-dark w-100">
 									<h3>${players[status.index].name}</h3>
 								</div>
 							</div>
 
-							<!-- 偶数番目のプレイヤーが存在すれば表示 -->
+							<%-- 偶数番目のプレイヤーが存在すれば表示 --%>
 							<c:if test="${players[status.index+1] != null}">
 								<div class="col-6">
 									<div class="p-2 border border-black text-center btn btn-outline-dark w-100">
