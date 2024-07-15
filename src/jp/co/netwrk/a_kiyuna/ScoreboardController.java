@@ -14,6 +14,12 @@ import javax.servlet.http.HttpSession;
 public class ScoreboardController extends HttpServlet {
 
 	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		System.out.println(req.getParameter("BUTTON_ID"));
+		doGet(req, res);
+	}
+
+	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		HttpSession session = req.getSession();
 

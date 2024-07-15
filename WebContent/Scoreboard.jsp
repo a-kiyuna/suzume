@@ -24,40 +24,43 @@
 		<div class="col-sm-6">
 			<%@include file="./ScoreHeader.jsp" %>
 
-			<div class="row justify-content-around">
+			<form method="POST" action="/suzume/scoreboard">
+				<div class="row justify-content-around">
 
-					<%-- プレイヤーの名前のボタン --%>
-					<%-- 1行に2名ずつ表示する --%>
-					<c:forEach var="player" varStatus="status" step="2" items="${players}">
-						<div class="row mt-5 justify-content-around">
+						<%-- プレイヤーの名前のボタン --%>
+						<%-- 1行に2名ずつ表示する --%>
+						<c:forEach var="player" varStatus="status" step="2" items="${players}">
+							<div class="row mt-5 justify-content-around">
 
-							<%-- 奇数番目のプレイヤーを表示 --%>
-							<div class="col-6">
-								<div class="p-2 border border-black text-center btn btn-outline-dark w-100">
-									<h3>${players[status.index].name}</h3>
-								</div>
-							</div>
-
-							<%-- 偶数番目のプレイヤーが存在すれば表示 --%>
-							<c:if test="${players[status.index+1] != null}">
+								<%-- 奇数番目のプレイヤーを表示 --%>
 								<div class="col-6">
 									<div class="p-2 border border-black text-center btn btn-outline-dark w-100">
-										<h3>${players[status.index+1].name}</h3>
+										<h3>${players[status.index].name}</h3>
 									</div>
 								</div>
-							</c:if>
-						</div>
-					</c:forEach>
 
-					<div class="row mt-5 justify-content-around">
-						<div class="col-2 p-3 border border-black text-center btn btn-outline-dark">
-							終了
+								<%-- 偶数番目のプレイヤーが存在すれば表示 --%>
+								<c:if test="${players[status.index+1] != null}">
+									<div class="col-6">
+										<div class="p-2 border border-black text-center btn btn-outline-dark w-100">
+											<h3>${players[status.index+1].name}</h3>
+										</div>
+									</div>
+								</c:if>
+							</div>
+						</c:forEach>
+
+						<div class="row mt-5 justify-content-around">
+							<div class="col-2 p-3 border border-black text-center btn btn-outline-dark">
+								<input type="submit" id="EXIT" value="終了">
+							</div>
 						</div>
-					</div>
-			</div>
+				</div>
+			</form>
 
 		</div>
 	</div>
+	<script src="./js/form.js"></script>
 </body>
 
 </html>
